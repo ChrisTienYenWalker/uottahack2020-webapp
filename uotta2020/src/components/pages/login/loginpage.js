@@ -1,22 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.png';
 import './App.css';
 import FirebaseApp from '../../../firebase.js';
 import "firebase/auth";
-import image from './image.jpg'
 
+function LoginPage() {
+   
 var firebaseAuth = FirebaseApp.auth();
+const [message, setMessage] = useState("");
+const [email, setemail] = useState("");
+const [password, setpassword]
+ 
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = ({
-            textEmail: "",
-            textPassword: ""
-        });
-    }
-
-    render() {
         return (
             <div className="App">
                 <header className="App-header ">
@@ -35,7 +30,8 @@ class App extends React.Component {
                                             // Handle Errors here.
                                             var errorCode = error.code;
                                             var errorMessage = error.message;
-                                            console.log(errorMessage)
+                                            console.log(errorMessage);
+                                            setMessage(errorMessage);
                                             // ...
                                         });
 
@@ -48,9 +44,10 @@ class App extends React.Component {
                                     }
                                 }
                                 }>
+                                    <h3 className="wrong">{message}</h3>
                                     <label>
                                         Email:
-                <input type="text" name="name" onChange={(event) => {
+                <input type="email" name="name" onChange={(event) => {
                                             this.setState({
                                                 textEmail: event.target.value
                                             })
@@ -58,7 +55,7 @@ class App extends React.Component {
                                         <br></br>
                                     </label>
                                     Password:
-                <input type="text" name="password" onChange={(event) => {
+                <input type="password" name="password" onChange={(event) => {
                                         this.setState({
                                             textPassword: event.target.value
                                         })
@@ -92,10 +89,8 @@ class App extends React.Component {
                 </header>
             </div>
         )
-    }
 }
 
 
-
-export default App;
+export default LoginPage;
 

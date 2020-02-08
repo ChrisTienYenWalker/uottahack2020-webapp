@@ -21,7 +21,7 @@
   font-weight: 300;
   height: 6vh;
   width: auto;
-  background-color: #61dafb;
+  background-color: white;
   color: black;
 }
 
@@ -69,4 +69,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.wrong{
+  color:red;
+  font-size: .73em;
 }

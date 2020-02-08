@@ -1,6 +1,5 @@
 import React from 'react'
 import './signup.css'
-import fillout from './fillout'
 import Fillout from './fillout.js'
 
 function Signup() {
@@ -8,11 +7,13 @@ function Signup() {
         <div className="signup">
             <div className="background">
                 <p className="stuff">UottawaHackathon2020</p>
-                <div style={{ display: 'flex' }}>
-                    <div className="left">
-                    </div>
-                    <div>
-                        <Fillout />
+                <div className="white">
+                    <div style={{ display: 'flex' }}>
+                        <div className="left">
+                        </div>
+                        <div>
+                            <Fillout />
+                        </div>
                     </div>
                 </div>
             </div>

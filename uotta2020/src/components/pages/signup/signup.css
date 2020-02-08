@@ -1,8 +1,15 @@
 .App {
     text-align: center;
-    
+    color: white;
 }
-
+.wrong{
+    color:red;
+    font-size: .73em;
+}
+.signup{
+    background-color: #0b3965;
+    height: 100vh;
+}
 .stuff{
   display: flex;
   flex-direction: column;
@@ -10,10 +17,13 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
+  margin: 0;
+  padding: 1em;
 }
 
 .left{
-    width: 60%;
+    width: 80%;
+    color: rgba(67, 194, 73, 0.897);
     background-image: url('./welcome.png');
     background-repeat:no-repeat;
     background-size: 100%;
@@ -25,33 +35,29 @@
 }
 
 .subtext{
-    font-size: .5em;
+    font-size: 1.2em;
+    font-weight: 600;
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .subtext:hover{
-    color: blue;
+    color: black;
     text-decoration:underline;
 }
 
-.button{
-    border-radius: 0.5em;
-    font-size: .7em;
-    font-weight: 300;
-    height: 6vh;
-    width: auto;
-    background-color: #61dafb;
-    color: black;
-}
 
 .App-Logo {
-    height: 15%;
+    height: 10em;
     pointer-events: none;
 }
 
 .background{
-    background-color: white;
-    width: 100em;
+    background-color: #0b3965;
+    width: 80em;
     margin: auto;
   }
+
+.form{
+    border-radius: 0.5em;
+}
