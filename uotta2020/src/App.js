@@ -1,7 +1,8 @@
 import React from 'react';
 import FirebaseApp from './firebase.js';
 import "firebase/auth";
-import Loginpage from "./components/pages/login/loginpage"
+import LoginPage from "./components/pages/login/loginpage"
+import HomePage from './components/pages/home/HomePage';
 var firebaseAuth = FirebaseApp.auth();
 
 class App extends React.Component {
@@ -15,7 +16,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <Loginpage></Loginpage>
+      // <LoginPage />
+      <HomePage />
     )
   }
 }
