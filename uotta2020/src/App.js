@@ -6,24 +6,13 @@ import HomePage from './components/pages/home/HomePage';
 import Signup from "./components/pages/signup/signup"
 var firebaseAuth = FirebaseApp.auth();
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = ({
-      textEmail: "",
-      textPassword: ""
-    });
-  }
-
-  render() {
+function App() {
     return (
       <LoginPage />
       //<Signup />
       //<HomePage />
     )
   }
-}
-
 
 
 export default App;

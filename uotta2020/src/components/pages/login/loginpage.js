@@ -30,7 +30,7 @@ const [password, setpassword] = useState("")
                                             // Handle Errors here.
                                             var errorCode = error.code;
                                             var errorMessage = error.message;
-                                            console.log(errorMessage);
+                                            console.log(email);
                                             setMessage(errorMessage);
                                             // ...
                                         });
