@@ -126,6 +126,7 @@ function AddMedication(props) {
             let db = await FirebaseApp.firestore();
             console.log("after db")
             let res = await db.collection('users').doc(user.user.uid).get().then((querySnapshot) => {
+                console.log(querySnapshot)
                 querySnapshot.forEach((doc) => {
                     console.log(`${doc.id} => ${doc.data()}`);
                 });
