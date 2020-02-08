@@ -1,0 +1,57 @@
+.App {
+    text-align: center;
+    
+}
+
+.stuff{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.left{
+    width: 60%;
+    background-image: url('./welcome.png');
+    background-repeat:no-repeat;
+    background-size: 100%;
+}
+
+.right{
+    width: 40%;
+    right: -100%;
+}
+
+.subtext{
+    font-size: .5em;
+    text-decoration: none;
+    color: black;
+}
+
+.subtext:hover{
+    color: blue;
+    text-decoration:underline;
+}
+
+.button{
+    border-radius: 0.5em;
+    font-size: .7em;
+    font-weight: 300;
+    height: 6vh;
+    width: auto;
+    background-color: #61dafb;
+    color: black;
+}
+
+.App-Logo {
+    height: 15%;
+    pointer-events: none;
+}
+
+.background{
+    background-color: white;
+    width: 100em;
+    margin: auto;
+  }

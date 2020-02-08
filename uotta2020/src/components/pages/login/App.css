@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  background-color: palegreen;
 }
 .left{
   width: 100%;
@@ -43,10 +42,10 @@
 
 .background{
   background-color: white;
-  background-repeat: no-repeat;
   width: 50em;
   margin: auto;
 }
+
 .App-header {
   background-color: white;
   min-height: 100vh;
@@ -58,6 +57,7 @@
   color: black;
 }
 
+/*?*/
 .App-link {
   color: #61dafb;
 }
