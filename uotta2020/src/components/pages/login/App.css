@@ -1,31 +1,54 @@
 .App {
   text-align: center;
+  background-color: palegreen;
 }
-.froms{
+.left{
+  width: 100%;
+  background-image: url('./images.jpg');
+  background-repeat:no-repeat;
+  background-size: 100%;
+}
+
+.right{
+  right: -100;
+  width: 40%;
+}
+.forms input{
   radius:50%
 }
 .button{
-  radius: 50%;
-  background-color: red;
-  color: white
+  border-radius: 0.5em;
+  font-size: .7em;
+  font-weight: 300;
+  height: 6vh;
+  width: auto;
+  background-color: #61dafb;
+  color: black;
+}
+
+.subtext{
+  font-size: .5em;
+  text-decoration: none;
+  color: black;
+}
+
+.subtext:hover{
+  color: blue;
+  text-decoration:underline;
 }
 .App-Logo {
-  height: 10vmin;
-  height: 23vmax;
-  margin-top: 15vmin;
-  margin-top: 25vmax;
+  height: 20%;
   pointer-events: none;
 }
 
 .background{
   background-color: white;
-  min-width: 100vh;
-  min-height: 100vh;
-
-
+  background-repeat: no-repeat;
+  width: 50em;
+  margin: auto;
 }
 .App-header {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
