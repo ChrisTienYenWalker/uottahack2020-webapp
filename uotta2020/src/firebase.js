@@ -1,6 +1,8 @@
 // Firebase App (the core Firebase SDK) is always required and
 // must be listed before other Firebase SDKs
-import * as firebase from "firebase/app";
+// import * as firebase from "firebase/app";
+
+const firebase = require("firebase");
 
 const firebaseConfig = {
     apiKey: "AIzaSyAANLMlWnz94p6QmRe3w6Hcp-y-shFY7ok",
@@ -13,4 +15,6 @@ const firebaseConfig = {
   };
 
 const FirebaseApp = firebase.initializeApp(firebaseConfig);
-export default FirebaseApp
+var db = firebase.firestore();
+console.log(db)
+export default firebase;

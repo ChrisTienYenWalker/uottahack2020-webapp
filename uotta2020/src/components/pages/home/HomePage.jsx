@@ -16,6 +16,7 @@ const BlackLine = styled.div`
     width: 100%;
     height: 0.1em;
     background-color: grey;
+    margin-bottom: 1em;
 `;
 
 function HomePage(props) {

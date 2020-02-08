@@ -1,9 +1,8 @@
 import React from 'react';
-import FirebaseApp from './firebase.js';
 import "firebase/auth";
 import LoginPage from "./components/pages/login/loginpage"
 import HomePage from './components/pages/home/HomePage';
-var firebaseAuth = FirebaseApp.auth();
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
   constructor(props) {
