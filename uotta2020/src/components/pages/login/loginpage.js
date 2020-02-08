@@ -45,12 +45,10 @@ const [password, setpassword] = useState("")
                                 }
                                 }>
                                     <h3 className="wrong">{message}</h3>
-                                    <label>
-                                        Email:
+                                        <p>Email:</p>
                 <input type="email" value={email} name="name" onChange={(e) => setemail(e.target.value)}/>
                                         <br></br>
-                                    </label>
-                                    Password:
+                                    <p>Password:</p>
                 <input type="password" name="password" onChange={(e)=>setpassword(e.target.value)}/>
                                 </form>
                                 <br></br>
