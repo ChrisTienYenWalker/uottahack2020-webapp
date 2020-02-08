@@ -1,31 +1,55 @@
 .App {
   text-align: center;
+  height: 100vh;
+  width: 100vw;
 }
-.froms{
+.lefta{
+  width: 60%;
+  background-image: url('./images.jpg');
+  background-repeat:no-repeat;
+  background-size: 100%;
+}
+
+.righta{
+  right: -100;
+  width: 40%;
+}
+.forms input{
   radius:50%
 }
 .button{
-  radius: 50%;
-  background-color: red;
-  color: white
+  border-radius: 0.5em;
+  font-size: .7em;
+  font-weight: 300;
+  height: 6vh;
+  width: auto;
+  background-color: white;
+  color: black;
+}
+
+.subtext{
+  font-size: .5em;
+  text-decoration: none;
+  color: black;
+}
+
+.subtext:hover{
+  color: blue;
+  text-decoration:underline;
 }
 .App-Logo {
-  height: 10vmin;
-  height: 23vmax;
-  margin-top: 15vmin;
-  margin-top: 25vmax;
+  height: 20%;
   pointer-events: none;
 }
 
-.background{
+.ground{
   background-color: white;
-  min-width: 100vh;
-  min-height: 100vh;
-
-
+  width: 50em;
+  margin: auto;
 }
+
 .App-header {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,6 +59,7 @@
   color: black;
 }
 
+/*?*/
 .App-link {
   color: #61dafb;
 }
@@ -46,4 +71,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.wrong{
+  color:red;
+  font-size: .73em;
 }
