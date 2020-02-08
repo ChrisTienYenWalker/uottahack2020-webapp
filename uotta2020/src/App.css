@@ -1,16 +1,28 @@
 .App {
   text-align: center;
 }
-
+.froms{
+  radius:50%
+}
+.button{
+  radius: 50%;
+  background-color: red;
+  color: white
+}
 .App-Logo {
-  height: 20vmin;
-  margin-bottom: 20%;
+  height: 10vmin;
+  height: 23vmax;
+  margin-top: 15vmin;
+  margin-top: 25vmax;
   pointer-events: none;
 }
 
 .background{
   background-color: white;
-  white-space: nowrap;
+  min-width: 100vh;
+  min-height: 100vh;
+
+
 }
 .App-header {
   background-color: #282c34;
@@ -20,7 +32,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-link {

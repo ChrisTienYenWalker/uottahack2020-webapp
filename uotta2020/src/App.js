@@ -18,11 +18,11 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <header className="App-header">
+        <header className="App-header ">
           <div className="background">
             <img src={logo} className= "App-Logo"alt="logo"/>
             <p>UottawaHackathon2020</p>
-            <form  onKeyPress={ async (event) =>{
+            <form className="forms" onKeyPress={ async (event) =>{
               if(event.key == "Enter"){
                var user = await firebaseAuth.signInWithEmailAndPassword(this.state.textEmail, this.state.textPassword).catch(function(error) {
                 // Handle Errors here.
