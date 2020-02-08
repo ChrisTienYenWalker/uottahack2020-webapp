@@ -17,8 +17,8 @@ class App extends React.Component {
 
   render() {
     return (
-      //<LoginPage />
-      <Signup />
+      <LoginPage />
+      //<Signup />
       //<HomePage />
     )
   }

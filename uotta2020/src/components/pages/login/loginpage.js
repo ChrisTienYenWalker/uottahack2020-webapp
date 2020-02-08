@@ -9,24 +9,24 @@ function LoginPage() {
 var firebaseAuth = FirebaseApp.auth();
 const [message, setMessage] = useState("");
 const [email, setemail] = useState("");
-const [password, setpassword]
+const [password, setpassword] = useState("")
  
 
         return (
             <div className="App">
                 <header className="App-header ">
-                    <div className="background">
+                    <div className="ground">
                         <p>UottawaHackathon2020</p>
                         <div style = {{display: 'flex'}}>
-                            <div className="left">
+                            <div className="lefta">
                                 <p>"He who has health has hope; and he who has hope has everything" - Arabian proverb</p>
                             </div>
-                            <div className="right">
+                            <div className="righta">
                                 <h1>Drug Time</h1>
                                 <img src={logo} className="App-Logo" alt="logo" />
                                 <form className="forms" onKeyPress={async (event) => {
                                     if (event.key == "Enter") {
-                                        var user = await firebaseAuth.signInWithEmailAndPassword(this.state.textEmail, this.state.textPassword).catch(function (error) {
+                                        var user = await firebaseAuth.signInWithEmailAndPassword(email, password).catch(function (error) {
                                             // Handle Errors here.
                                             var errorCode = error.code;
                                             var errorMessage = error.message;
@@ -47,28 +47,21 @@ const [password, setpassword]
                                     <h3 className="wrong">{message}</h3>
                                     <label>
                                         Email:
-                <input type="email" name="name" onChange={(event) => {
-                                            this.setState({
-                                                textEmail: event.target.value
-                                            })
-                                        }} />
+                <input type="email" value={email} name="name" onChange={(e) => setemail(e.target.value)}/>
                                         <br></br>
                                     </label>
                                     Password:
-                <input type="password" name="password" onChange={(event) => {
-                                        this.setState({
-                                            textPassword: event.target.value
-                                        })
-                                    }} />
+                <input type="password" name="password" onChange={(e)=>setpassword(e.target.value)}/>
                                 </form>
                                 <br></br>
                                 <button className="button"
                                     onClick={async () => {
-                                        var user = await firebaseAuth.signInWithEmailAndPassword(this.state.textEmail, this.state.textPassword).catch(function (error) {
+                                        var user = await firebaseAuth.signInWithEmailAndPassword(email, password).catch(function (error) {
                                             // Handle Errors here.
                                             var errorCode = error.code;
                                             var errorMessage = error.message;
                                             console.log(errorMessage)
+                                            setMessage(errorMessage);
                                             // ...
                                         });
 
