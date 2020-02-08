@@ -15,12 +15,12 @@ class App extends React.Component {
     });
   }
 
-  render(){
+  render() {
     return (
       <div className="App">
         <header className="App-header ">
           <div className="background">
-            <img src={logo} className= "App-Logo"alt="logo"/>
+            <img src={logo} className="App-Logo" alt="logo" />
             <p>UottawaHackathon2020</p>
             <form className="forms" onKeyPress={ async (event) =>{
               if(event.key == "Enter"){
@@ -32,14 +32,14 @@ class App extends React.Component {
                 // ...
               });
 
-              if (user != null){
-                console.log(user.user.email)
+                if (user != null) {
+                  console.log(user.user.email)
+                }
+                else {
+                  console.log("bad")
+                }
               }
-              else{
-                console.log("bad")
-              }
-              }
-            } 
+            }
             }>
               <label>
                 Email:
@@ -47,40 +47,40 @@ class App extends React.Component {
                   this.setState({
                     textEmail: event.target.value
                   })
-                }}/>
+                }} />
                 <br></br>
               </label>
               Password:
-                <input type="text" name = "password" onChange={(event) => {
-                  this.setState({
-                    textPassword: event.target.value
-                  })
-                }}/>
+                <input type="text" name="password" onChange={(event) => {
+                this.setState({
+                  textPassword: event.target.value
+                })
+              }} />
             </form>
             <br></br>
             <button
-              onClick={ async () => {
-              var user = await firebaseAuth.signInWithEmailAndPassword(this.state.textEmail, this.state.textPassword).catch(function(error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                console.log(errorMessage)
-                // ...
-              });
+              onClick={async () => {
+                var user = await firebaseAuth.signInWithEmailAndPassword(this.state.textEmail, this.state.textPassword).catch(function (error) {
+                  // Handle Errors here.
+                  var errorCode = error.code;
+                  var errorMessage = error.message;
+                  console.log(errorMessage)
+                  // ...
+                });
 
-              if (user != null){
-                console.log(user.user.email)
+                if (user != null) {
+                  console.log(user.user.email)
+                }
+                else {
+                  console.log("bad")
+                }
               }
-              else{
-                console.log("bad")
-              }
-            }
-            }>Log In</button>
-            <br></br>            
+              }>Log In</button>
+            <br></br>
             <a href="#" className="subtext">Not signed up</a>
             <br></br>
             <a href="#" className="subtext">Forgot your password</a>
-            </div>
+          </div>
         </header>
       </div>
     )
