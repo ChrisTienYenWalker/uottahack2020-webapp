@@ -9,8 +9,7 @@ function LoginPage(props) {
 var firebaseAuth = FirebaseApp.auth();
 const [message, setMessage] = useState("");
 const [email, setemail] = useState("");
-const [password, setpassword] = useState("")
-props.setuser 
+const [password, setpassword] = useState("");
 
         return (
             <div className="App">

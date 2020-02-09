@@ -7,15 +7,14 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 function App() {
-const[user, setuser] = useState("")
+  const [user, setUser] = useState(null);
   return (
     <Router>
-      {/* <LoginPage /> */}
-      {/* //<Signup />
-        //<HomePage /> */}
+      {/* {(user == null) ? <Redirect to = '/login' /> : ''} */}
       <Switch>
         <Route path='/login' component={() => <LoginPage setuser = {setuser}/>} />
         <Route path='/home' component={() => <HomePage user = {user}/>} />
