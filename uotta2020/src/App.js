@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "firebase/auth";
 import LoginPage from "./components/pages/login/loginpage"
 import HomePage from './components/pages/home/HomePage';
+import SignupPage from './components/pages/signup/signup'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
@@ -10,7 +11,6 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
-import Signup from './components/pages/signup/signup';
 function App() {
   const [user, setUser] = useState(null);
   return (
@@ -20,6 +20,7 @@ function App() {
       <Switch>
         <Route path='/login' component={() => <LoginPage setUser = {setUser}/>} />
         <Route path='/home' component={() => <HomePage user = {user}/>} />
+        <Route path='/signup' component={() => <SignupPage/>} />
         <Route component = {() => <LoginPage setUser = {setUser}/>} />
       </Switch>
     </Router>
