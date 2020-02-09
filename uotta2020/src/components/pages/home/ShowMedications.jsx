@@ -27,13 +27,15 @@ function ShowMedication(props) {
     }, [])
 
     const fetchAPI = async () => {
+        console.log(props.user)
         var firebaseAuth = FirebaseApp.auth();
         let db = await FirebaseApp.firestore();
-        let res = await db.collection('users').doc(user.user.uid)
-        setMedications([
-            { name: "Testing", desc: "This is a desc, so ya it works. Yeep do dah." },
-            { name: "Advil", desc: "Make that pain go away. Yepp it de do dah it needs to be longer." }
-        ]);
+        console.log(props.user.user.uid)
+        let res = await db.collection('users').doc(props.user.user.uid).get();
+        console.log(res)
+        let data = res.data();
+        console.log(data)
+        setMedications(data.medications)
     }
     return (
         <Component>

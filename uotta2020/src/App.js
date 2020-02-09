@@ -12,14 +12,15 @@ import {
 } from "react-router-dom";
 import Signup from './components/pages/signup/signup';
 function App() {
-  const [user, setuser] = useState(null);
+  const [user, setUser] = useState(null);
   return (
     <Router>
-      {(user == null) ? <Redirect to = '/login' /> : ''}
+      {console.log(user)}
+      {(user == null) ? <Redirect to = '/login' /> : <Redirect to = '/home' />}
       <Switch>
-        <Route path='/login' component={() => <LoginPage setuser = {setUser}/>} />
+        <Route path='/login' component={() => <LoginPage setUser = {setUser}/>} />
         <Route path='/home' component={() => <HomePage user = {user}/>} />
-        <Route component = {() => <LoginPage setuser = {setUser}/>} />
+        <Route component = {() => <LoginPage setUser = {setUser}/>} />
       </Switch>
     </Router>
   )

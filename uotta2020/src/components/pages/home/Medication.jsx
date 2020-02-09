@@ -7,7 +7,6 @@ const Component = styled.div`
     margin-bottom: 1rem;
     width: 29rem;
     padding: 1rem;
-    height: 10rem;
     border: 0.3rem solid darkgrey;
     border-radius: 0.5rem;
     transition: all 0.5s;
