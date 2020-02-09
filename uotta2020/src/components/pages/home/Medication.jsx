@@ -92,7 +92,8 @@ function Medication(props) {
 
     return (
         <Component>
-            <Image src={Default} />
+            {console.log(props.image)}
+            <Image src={props.image} />
             <TextContainer>
                 <Name>{props.name}</Name>
                 <Desc>{props.desc}</Desc>

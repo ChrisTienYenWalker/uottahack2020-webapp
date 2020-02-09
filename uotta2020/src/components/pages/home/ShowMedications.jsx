@@ -35,9 +35,20 @@ function ShowMedication(props) {
         let res = await db.collection('users').doc(props.user.user.uid).get();
         console.log(res)
         let data = res.data()
-        setMedications(data.medications)
+        const snapshot = await db.collection('medication_info').get()
+        let dataMeds = snapshot.docs.map(doc => doc.data());
+        console.log(dataMeds)
+        let newArray = [];
+        for (let x = 0;x < data.medications.length;x++) {
+            console.log(data.medications[x].name)
+            let med = dataMeds.find(ele => ele.name == data.medications[x].name)
+            console.log(med)
+            newArray.push({...data.medications[x], image: med.image});
+        }
+        console.log(newArray)
+        setMedications(newArray)
         } catch(err) {
-            
+            console.log(err);
         }
     }
     return (
@@ -45,7 +56,7 @@ function ShowMedication(props) {
             <Title>Your Medication</Title>
             <MedicationContainer>
                 {
-                    medications.map(ele => <Medication update = {fetchAPI} user = {props.user} times = {ele.times} name={ele.name} desc={ele.desc} />)
+                    medications.map(ele => <Medication image = {ele.image} update = {fetchAPI} user = {props.user} times = {ele.times} name={ele.name} desc={ele.desc} />)
                 }
             </MedicationContainer>
         </Component>
