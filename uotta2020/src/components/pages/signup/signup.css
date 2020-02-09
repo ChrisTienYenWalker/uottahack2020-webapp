@@ -1,6 +1,5 @@
 .App {
     text-align: center;
-    color: white;
 }
 .wrong{
     color:red;
@@ -30,19 +29,19 @@
 }
 
 .right{
+    right: -100;
     width: 40%;
-    right: -100%;
 }
 
 .subtext{
     font-size: 1.2em;
     font-weight: 600;
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 .subtext:hover{
-    color: black;
+    color: blue;
     text-decoration:underline;
 }
 

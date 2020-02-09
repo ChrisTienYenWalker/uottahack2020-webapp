@@ -3,6 +3,8 @@ import logo from './logo.png';
 import './App.css';
 import FirebaseApp from '../../../firebase.js';
 import "firebase/auth";
+import { Link } from 'react-router-dom';
+
 
 function LoginPage(props) {
    
@@ -49,11 +51,9 @@ const [password, setpassword] = useState("");
                                     <h3 className="wrong">{message}</h3>
                                         <p>Email:</p>
                 <input type="email" value={email} name="name" onChange={(e) => setemail(e.target.value)}/>
-                                        <br></br>
                                     <p>Password:</p>
                 <input type="password" name="password" onChange={(e)=>setpassword(e.target.value)}/>
                                 </form>
-                                <br></br>
                                 <button className="button"
                                     onClick={async () => {
                                         var user = await firebaseAuth.signInWithEmailAndPassword(email, password).catch(function (error) {
@@ -74,7 +74,7 @@ const [password, setpassword] = useState("");
                                     }
                                     }>Log Into Your Most Important App</button>
                                 <br></br>
-                                <a href="#" className="subtext">Not signed up</a>
+                                <Link to="/signup" className="subtext">Not Signed up yet</Link>
                                 <br></br>
                             </div>
                         </div>

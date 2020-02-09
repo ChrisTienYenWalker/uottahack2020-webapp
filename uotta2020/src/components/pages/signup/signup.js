@@ -1,6 +1,8 @@
 import React from 'react'
 import './signup.css'
 import Fillout from './fillout.js'
+import { Link } from 'react-router-dom';
+
 
 function Signup() {
     return (
@@ -10,6 +12,8 @@ function Signup() {
                 <div className="white">
                     <div style={{ display: 'flex' }}>
                         <div className="left">
+                        </div>
+                        <div>
                             <Fillout />
                         </div>
                     </div>

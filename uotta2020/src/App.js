@@ -10,14 +10,16 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
+import Signup from './components/pages/signup/signup';
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setuser] = useState(null);
   return (
     <Router>
       {/* {(user == null) ? <Redirect to = '/login' /> : ''} */}
       <Switch>
         <Route path='/login' component={() => <LoginPage setuser = {setuser}/>} />
         <Route path='/home' component={() => <HomePage user = {user}/>} />
+        <Route path='/signup' component={() => <Signup user = {user}/>}/>
         <Route component = {() => <LoginPage setuser = {setuser}/>} />
       </Switch>
     </Router>
