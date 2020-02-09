@@ -27,7 +27,7 @@ function MedicationSelect(props) {
     return (
         <Component>
             <Name>{props.name}</Name>
-            <AddMedication onClick = {() => {props.select(props.name)}}>Add A Medication</AddMedication>
+            <AddMedication onClick = {() => {props.select(props.name, props.desc)}}>Add A Medication</AddMedication>
         </Component>
     )
 }

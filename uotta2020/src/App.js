@@ -14,11 +14,11 @@ function App() {
   const [user, setUser] = useState(null);
   return (
     <Router>
-      {/* {(user == null) ? <Redirect to = '/login' /> : ''} */}
+      {(user == null) ? <Redirect to = '/login' /> : ''}
       <Switch>
-        <Route path='/login' component={() => <LoginPage setuser = {setuser}/>} />
+        <Route path='/login' component={() => <LoginPage setuser = {setUser}/>} />
         <Route path='/home' component={() => <HomePage user = {user}/>} />
-        <Route component = {() => <LoginPage setuser = {setuser}/>} />
+        <Route component = {() => <LoginPage setuser = {setUser}/>} />
       </Switch>
     </Router>
   )
