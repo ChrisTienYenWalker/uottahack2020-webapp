@@ -26,7 +26,7 @@ function HomePage(props) {
                 Insert Title Here
             </Title>
             <BlackLine />
-            <ShowMedications />
+            <ShowMedications user = {props.user} />
             <AddMedication />
         </Page>
     )

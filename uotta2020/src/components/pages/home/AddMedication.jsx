@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import MedicationSelect from './MedicationSelect';
 import Modal from 'react-bootstrap/Modal';
@@ -97,6 +97,31 @@ function AddMedication(props) {
     const [hourInput, setHourInput] = useState("00");
     const [minInput, setMinInput] = useState("00");
 
+    useEffect(() => {
+        fetchAPI();
+    }, [])
+
+    const fetchAPI = async () => {
+        try {
+            var firebaseAuth = await FirebaseApp.auth();
+            await firebaseAuth.signInWithEmailAndPassword("william.t2039@gmail.com", "Google123456");
+            let db = await FirebaseApp.firestore();
+            const snapshot = await db.collection('medication_info').get()
+            let data = snapshot.docs.map(doc => doc.data());
+            console.log(data);
+            let medInfo = [];
+            data.map(ele => {
+                if (ele.name != undefined) {
+                    medInfo.push({ desc: ele.description, name: ele.name });
+                }
+            })
+            console.log(medInfo)
+            setMedications(medInfo)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     const select = (id) => {
         setMedications(medications.map(ele => {
             if (ele.id == id) {
@@ -106,9 +131,9 @@ function AddMedication(props) {
         }))
     }
 
-    const addMed = (name) => {
+    const addMed = (name, desc) => {
         setShowModal(true);
-        setSelectedMed(name);
+        setSelectedMed({name: name, desc: desc});
     }
 
     const close = () => {
@@ -121,20 +146,17 @@ function AddMedication(props) {
         try {
             var firebaseAuth = FirebaseApp.auth();
             let user = await firebaseAuth.signInWithEmailAndPassword("william.t2039@gmail.com", "Google123456");
-            console.log(user.user.uid)
-            console.log(FirebaseApp)
             let db = await FirebaseApp.firestore();
             let data = null;
             let res = await db.collection('users').doc(user.user.uid).get().then((querySnapshot) => {
                 data = querySnapshot.data();
             });
             console.log(data)
+            let dataToInsert = { name: selectedMed.name, desc: selectedMed.desc, times: timesOfDay };
             if (data.medications == undefined) {
-                let res2 = await db.collection('users').doc(user.user.uid).update({ medications: [{ name: "" }] });
-                console.log(res2)
+                await db.collection('users').doc(user.user.uid).update({ medications: [dataToInsert] });
             } else {
-                let res2 = await db.collection('users').doc(user.user.uid).update({ medications: [...data.medications, { name: "" }] });
-            console.log(res2);
+                await db.collection('users').doc(user.user.uid).update({ medications: [...data.medications, dataToInsert] });
             }
         } catch (err) {
             console.log("Error");
@@ -177,7 +199,7 @@ function AddMedication(props) {
                 !addingMore ? '' :
                     <>
                         {
-                            medications.map(ele => <MedicationSelect name={ele.name} id={ele.id} select={addMed} />)
+                            medications.map(ele => <MedicationSelect name={ele.name} id={ele.id} select={addMed} desc = {ele.desc} />)
                         }
                     </>
             }
