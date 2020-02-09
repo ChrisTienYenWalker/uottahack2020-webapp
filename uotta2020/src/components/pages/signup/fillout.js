@@ -3,6 +3,8 @@ import './signup'
 import logo from '../login/logo.png'
 import firebase from '../../../firebase'
 
+var database = firebase.database();
+
 function Fillout(){
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
@@ -48,5 +50,10 @@ function good(){
         </div>
     )
 }
+    /*let info = await db.collection("users").doc(user).get()({ 
+    email = email,
+    name = name,
+    password = password*/
+})
 
 export default Fillout;

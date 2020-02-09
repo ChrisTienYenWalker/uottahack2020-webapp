@@ -10,8 +10,6 @@ function Signup() {
                 <div className="white">
                     <div style={{ display: 'flex' }}>
                         <div className="left">
-                        </div>
-                        <div>
                             <Fillout />
                         </div>
                     </div>

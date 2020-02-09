@@ -4,13 +4,13 @@ import './App.css';
 import FirebaseApp from '../../../firebase.js';
 import "firebase/auth";
 
-function LoginPage() {
+function LoginPage(props) {
    
 var firebaseAuth = FirebaseApp.auth();
 const [message, setMessage] = useState("");
 const [email, setemail] = useState("");
 const [password, setpassword] = useState("")
- 
+props.setuser 
 
         return (
             <div className="App">
@@ -26,7 +26,7 @@ const [password, setpassword] = useState("")
                                 <img src={logo} className="App-Logo" alt="logo" />
                                 <form className="forms" onKeyPress={async (event) => {
                                     if (event.key == "Enter") {
-                                        var user = await firebaseAuth.signInWithEmailAndPassword(email, password).catch(function (error) {
+                                        const user = await firebaseAuth.signInWithEmailAndPassword(email, password).catch(function (error) {
                                             // Handle Errors here.
                                             var errorCode = error.code;
                                             var errorMessage = error.message;
@@ -37,11 +37,14 @@ const [password, setpassword] = useState("")
 
                                         if (user != null) {
                                             console.log(user.user.email)
+                                            props.setuser(user)
+
                                         }
                                         else {
                                             console.log("bad")
                                         }
                                     }
+
                                 }
                                 }>
                                     <h3 className="wrong">{message}</h3>
