@@ -4,13 +4,12 @@ import './App.css';
 import FirebaseApp from '../../../firebase.js';
 import "firebase/auth";
 
-function LoginPage() {
+function LoginPage(props) {
    
 var firebaseAuth = FirebaseApp.auth();
 const [message, setMessage] = useState("");
 const [email, setemail] = useState("");
-const [password, setpassword] = useState("")
- 
+const [password, setpassword] = useState("");
 
         return (
             <div className="App">

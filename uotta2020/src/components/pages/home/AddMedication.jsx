@@ -124,14 +124,18 @@ function AddMedication(props) {
             console.log(user.user.uid)
             console.log(FirebaseApp)
             let db = await FirebaseApp.firestore();
-            console.log("after db")
+            let data = null;
             let res = await db.collection('users').doc(user.user.uid).get().then((querySnapshot) => {
-                console.log(querySnapshot)
-                querySnapshot.forEach((doc) => {
-                    console.log(`${doc.id} => ${doc.data()}`);
-                });
+                data = querySnapshot.data();
             });
-            console.log(res)
+            console.log(data)
+            if (data.medications == undefined) {
+                let res2 = await db.collection('users').doc(user.user.uid).update({ medications: [{ name: "" }] });
+                console.log(res2)
+            } else {
+                let res2 = await db.collection('users').doc(user.user.uid).update({ medications: [...data.medications, { name: "" }] });
+            console.log(res2);
+            }
         } catch (err) {
             console.log("Error");
             console.log(err);
