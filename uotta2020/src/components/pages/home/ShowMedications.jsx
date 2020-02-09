@@ -24,25 +24,28 @@ function ShowMedication(props) {
     const { user } = props;
     useEffect(() => {
         fetchAPI();
-    }, [])
+    }, [props.update])
 
     const fetchAPI = async () => {
         console.log(props.user)
+        try {
         var firebaseAuth = FirebaseApp.auth();
         let db = await FirebaseApp.firestore();
         console.log(props.user.user.uid)
         let res = await db.collection('users').doc(props.user.user.uid).get();
         console.log(res)
-        let data = res.data();
-        console.log(data)
+        let data = res.data()
         setMedications(data.medications)
+        } catch(err) {
+            
+        }
     }
     return (
         <Component>
             <Title>Your Medication</Title>
             <MedicationContainer>
                 {
-                    medications.map(ele => <Medication name={ele.name} desc={ele.desc} />)
+                    medications.map(ele => <Medication update = {fetchAPI} user = {props.user} times = {ele.times} name={ele.name} desc={ele.desc} />)
                 }
             </MedicationContainer>
         </Component>

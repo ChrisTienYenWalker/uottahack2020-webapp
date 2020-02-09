@@ -84,7 +84,7 @@ const DelButton = styled.div`
 `;
 
 function AddMedication(props) {
-    const [addingMore, setAddingMore] = useState(true);
+    const [addingMore, setAddingMore] = useState(false);
     const [medications, setMedications] = useState([
         { name: "Med 1", id: 0, checked: false },
         { name: "Medication", id: 1, checked: false },
@@ -158,6 +158,7 @@ function AddMedication(props) {
             } else {
                 await db.collection('users').doc(user.user.uid).update({ medications: [...data.medications, dataToInsert] });
             }
+            props.setUpdate(!props.update)
         } catch (err) {
             console.log("Error");
             console.log(err);

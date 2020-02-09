@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import ShowMedications from './ShowMedications';
 import AddMedication from './AddMedication';
@@ -20,14 +20,15 @@ const BlackLine = styled.div`
 `;
 
 function HomePage(props) {
+    const [update, setUpdate] = useState(true);
     return (
         <Page>
             <Title>
-                Insert Title Here
+                DRUG TIME YAAAAAAAAA BOYS
             </Title>
             <BlackLine />
-            <ShowMedications user = {props.user} />
-            <AddMedication />
+            <ShowMedications update = {update} user = {props.user} />
+            <AddMedication update = {update} setUpdate = {setUpdate} />
         </Page>
     )
 }

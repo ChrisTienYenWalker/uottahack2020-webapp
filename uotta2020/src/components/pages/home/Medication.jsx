@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Default from '../../../img/cat.jpeg';
+import FirebaseApp from '../../../firebase.js';
 
 const Component = styled.div`
     display: flex;
@@ -43,14 +44,65 @@ const SeeMore = styled.p`
     }
 `;
 
+const DeleteButton = styled.div`
+    margin-top: 1em;
+    width: 25%;
+    border: solid red 0.2em;
+    border-radius: 0.5em;
+    text-align: center;
+    padding: 0.2em 0;
+    color: red;
+    transition: all 0.25s;
+    cursor: pointer;
+    &:hover {
+        background-color: red;
+        color: white;
+    }
+`;
+
+const Time = styled.h4`
+    font-size: 1.25em;
+`;
+
+const TimeContainer = styled.div`
+    display: flex;
+    width: 100%;
+`;
+
+const ShowTime = styled.h4`
+    margin: 0;
+    margin-right: 0.5em;
+`;
+
 function Medication(props) {
+    const del = async () => {
+        var firebaseAuth = FirebaseApp.auth();
+        let db = await FirebaseApp.firestore();
+        let res = await db.collection('users').doc(props.user.user.uid).get();
+        let data = res.data();
+        let newArr = [];
+        data.medications.map(ele => {
+            if (ele.name != props.name) {
+                newArr.push(ele)
+            }
+        })
+        await db.collection('users').doc(props.user.user.uid).update({ medications: newArr });
+        props.update();
+    }
+
     return (
         <Component>
-            <Image src = {Default} />
+            <Image src={Default} />
             <TextContainer>
                 <Name>{props.name}</Name>
                 <Desc>{props.desc}</Desc>
-                <SeeMore>See More</SeeMore>
+                <Time>Times (24 hour clock):</Time>
+                <TimeContainer>
+                    {
+                        props.times.map(ele => <ShowTime>{ele.time},</ShowTime>)
+                    }
+                </TimeContainer>
+                <DeleteButton onClick={del}>Delete</DeleteButton>
             </TextContainer>
         </Component>
     );

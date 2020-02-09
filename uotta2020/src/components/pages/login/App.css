@@ -4,31 +4,35 @@
   width: 100vw;
 }
 .lefta{
-  width: 80%;
-  background-image: url('./images.jpg');
-  background-repeat:no-repeat;
-  background-size: 100%;
+  width: 60%;
 }
 
 .righta{
   right: -100;
   width: 40%;
+  margin: auto 0;
+  height: fit-content;
 }
 .forms input{
   radius:50%
 }
 .button{
+  width: 30%;
+  margin: 1em 0;
   border-radius: 0.5em;
-  font-size: .7em;
-  font-weight: 300;
+  font-size: 1em;
   height: 6vh;
-  width: auto;
   background-color: white;
   color: black;
+  border: black thin solid;
+}
+
+.button:hover {
+  background-color: lightgrey;
 }
 
 .subtext{
-  font-size: .5em;
+  font-size: .25em;
   text-decoration: none;
   color: black;
 }
@@ -44,7 +48,7 @@
 
 .ground{
   background-color: white;
-  width: 50em;
+  width: 45em;
   margin: auto;
 }
 
