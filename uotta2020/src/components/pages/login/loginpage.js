@@ -64,9 +64,9 @@ const [password, setpassword] = useState("");
                                             setMessage(errorMessage);
                                             // ...
                                         });
-
                                         if (user != null) {
                                             console.log(user.user.email)
+                                            props.setUser(user)
                                         }
                                         else {
                                             console.log("bad")
